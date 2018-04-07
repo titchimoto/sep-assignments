@@ -1,0 +1,23 @@
+How does your data structure allow developers to access and manipulate the data?
+If a developer wanted to find a specific element in your data structure, how would you search for it?
+What other real-world data can each structure represent?
+
+1. A line of people at an amusement park ride.
+
+- The concept of a line lends itself perfectly to an array-like data structure. The nature of being able to add data to the back and remove from the front is a prime example of this.
+- Developers can use methods such as join(person) to add someone to the back of the line,
+- Developers can also user front, back and middle to find people in specific places in the line.
+- If a developer wishes to find a specific element they can use search(person) and search for a string/name in the array.
+- This will return a string stating that person either is or is not present in the line/array.
+- Other real world data this could represent could be traffic building at traffic lights, or a predetermined radio playlist.
+
+
+2. Pixels on a computer screen
+
+- Using the classes, I initialized a Ruby Hash to store each co-ordinate, with the x, y co-ordinates being the key and each pixel being the value.
+- I decided to structure this way because, unlike the line above, a linear order is not as relevant, and the co-ordinates are the important value in determining position.
+- Developers can insert pixels using the insert(pixel, x, y) method.
+- This will create a new addition to the matrix, with the key as the (x, y) co-ordinates and the value as the Pixel instance.
+- If the developer wanted to find a specific element, they could use the at(x, y) method and enter two co-ordinates. This will return the Pixel instance found for that key/value pair.
+- Colors & pixel dimensions are validated using methods to ensure that invalid or erroneous data can not be added.
+- Other data this could represent could be locations on a map, books on a bookshelf or stats for a sports player or video game character.
