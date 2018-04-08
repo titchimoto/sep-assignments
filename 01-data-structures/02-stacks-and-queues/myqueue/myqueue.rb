@@ -14,7 +14,7 @@ class MyQueue
   end
 
   def dequeue
-    element = @queue[-1]
+    element = @queue[0]
     @queue -= [element]
     set_head_tail
     element
