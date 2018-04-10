@@ -1,0 +1,12 @@
+Written Assignment, write your answers in hashes-1-answers.txt
+
+Explain why doubling the size of the underlying array of your HashClass may be a poor idea.
+
+As mentioned in the hints of the assignment, the first issue that springs to mind is that for 
+smaller array sizes (i.e 2, 4, 8 etc.) a double in size is not that drastic, but as the array becomes
+larger, this doubling becomes more of an issue. As we already know, arrays are stored consecutively in
+memory, therefore, doubling from 512, to 1024, for example, requires a much larger proportion of memory to be reserved.
+This becomes inefficient when, for example, we may only require 257 slots in our array, but by doubling every time, our
+array size increases from 256 to 512, leaving precious allocated memory unused.
+In our example, this may also be inefficient, as doubling the array size each time requires each item to be
+recalculated and repositioned in the array, leading to costly memory re-allocation operations.
