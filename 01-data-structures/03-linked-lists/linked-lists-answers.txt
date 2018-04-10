@@ -1,0 +1,21 @@
+1. What is Spatial Locality and why does it benefit performance?
+
+Spacial Locality refers to the concept of how data is stored in memory, and the physical address of data being in close proximity.
+For example, with an array, data is stored consecutively in memory, meaning that is a little less flexible in terms of storage, but much more efficient to retrieve because it is stored consecutively.
+
+2. Here are the results from my Array & LinkedList Benchmarking tests:
+
+              user     system      total        real
+Create Array  0.000000   0.000000   0.000000 (  0.001658)
+Create LinkedList  1.720000   0.000000   1.720000 (  1.728010)
+              user     system      total        real
+Find 5000th Item Array  0.000000   0.000000   0.000000 (  0.000002)
+Find 5000th Item LinkedList  0.000000   0.000000   0.000000 (  0.000418)
+              user     system      total        real
+Remove 5000th Item Array  0.000000   0.000000   0.000000 (  0.000008)
+Remove 5000th Item LinkedList  0.000000   0.000000   0.000000 (  0.000811)
+
+Through my benchmarking tests, it appeared that arrays were significantly more efficient at creating a 10,000 element structure. 
+Whilst accessing or removing specific elements was more comparable in terms of efficiency, it still seemed that arrays completed these operations quicker than the linked list.
+
+
