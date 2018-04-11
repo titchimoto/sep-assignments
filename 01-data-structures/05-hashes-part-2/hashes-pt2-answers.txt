@@ -1,0 +1,50 @@
+
+2. Create a function capable of printing the state of your HashClass to the console.
+This function must present the location and value of each entry in a readily understood way.
+This function must also print the hash’s Load Factor.
+Use this function to verify the behavior of each HashClass after a series of insertions.
+Present the output of this function in the submission tab.
+
+Print out from the separate_chaining.rb:
+
+There are currently 3 items out of 8 spaces in the hash, with a load factor of 0.375
+These are the items in the hash as 'key: value' pairs: 
+Star Wars: The Phantom Menace: Number One
+Star Wars: Attack of the Clones: Number Two
+Star Wars: Revenge of the Sith: Number Three
+
+Print out from the open_addressing.rb:
+
+There are currently 6 items out of 10 spaces in the hash, with a load factor of 0.6
+These are the items in the hash as 'key: value' pairs: 
+Star Wars: The Empire Strikes Back: Number Five
+Star Wars: Return of the Jedi: Number Six
+Star Wars: Attack of the Clones: Number Two
+Star Wars: A New Hope: Number Four
+Star Wars: Revenge of the Sith: Number Three
+
+
+3. Describe three collision resolution strategies not mentioned here.
+
+Coalesced Hashing - This method is somewhat of a hybrid between separate chaining & open addressing. Similar to separate
+chaining, it uses a linked list, but in this strategy, the linked list points to another bucket in the table.
+
+2-Choice Hashing - This method uses two different hashing functions to create two separate hashing indexes within the table.
+Using these two different locations, it will calculate which location contains fewer items and place the new item in the 
+location that contains the fewest items.
+
+Robin Hood Hashing - Another variation on open addressing. With this method, when you are inserting a new element, if the probe 
+length for the existing element is less than the current probe length for the new element being added, simply swap the two 
+elements and keep going.
+
+
+4. Create your own collision resolution strategy and describe how it works.
+
+My collision strategy, which I've named "Quarter-Quarter Hashing" is a variation of open addressing. It works as normal whilst there 
+are empty spaces in the array, by using the hashing function to create an index for the new element, and using a linear probe
+to search for the next available index. Once the structure only has one quarter of it's available capacity left, simply increase the size
+of the structure by 1/4 to n = n * 1.25 (rounding to the nearest whole number where neccessary). The idea behind this is to create
+a trade-off between memory allocation, load factor and memory re-allocation operations. Using an array size of n = 32 as
+an example, inserting the 24th element would cause the array to resize to n = 40, with a load factor of 0.6. By making use of a simple, flat
+array structure, this trade-off will hopefully help reduce potential cache misses and storage inefficiencies. 
+
