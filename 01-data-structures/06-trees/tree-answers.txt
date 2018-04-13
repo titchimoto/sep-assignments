@@ -1,0 +1,38 @@
+When would you use a Binary Search Tree and why?
+
+A binary search tree would be useful for regularly storing and retrieving data in a tree like structure, 
+allowing for efficient traversal and retrieval. However, due to the left to right nature of BST's, a tree 
+could potentially degenerate into an unbalanced tree, stacking multiple elements all on the same side, 
+essentially forming a linked list. 
+
+When would you use an Heap and why?
+
+A heap may be slightly more beneficial when trying to establish some type of priority queue (or reverse priority).
+For example, if you always need to keep the min or max value of any data easily accessible, a heap will be beneficial
+in trickling that number up to the root node (depending on either 'min heap' or 'max heap'). This means that data
+will always be loosely organized in an expected manner, where we know that for any particular node, the parent node will
+always be either higher/lower. 
+
+
+Here are all the results from my benchmarking tests: 
+
+The first test shows the insertion of 100000 elements into both trees. It appears that the Min Heap insertion
+is more efficient in this regard.
+
+The second test shows the deletion of the 50000th element, which again, showed the min heap was slightly more
+efficient. Perhaps because we know that a node's parent will always be smaller than itself?
+
+The third and final benchmarking test shows the random deletion of all 100000 elements from both the tree and
+the heap respectively. The binary tree performed better in this instance, perhaps due to the DFS being more suited
+to this type of operation.
+
+
+              user     system      total        real
+Binary Tree Insertion  0.380000   0.010000   0.390000 (  0.388745)
+Min Heap Insertion  0.250000   0.010000   0.260000 (  0.261815)
+              user     system      total        real
+Binary Tree Find 50000th Element  0.000000   0.000000   0.000000 (  0.000012)
+Heap Tree Find 50000th Element  0.000000   0.000000   0.000000 (  0.000011)
+              user     system      total        real
+Binary Tree Deletion  0.000000   0.000000   0.000000 (  0.000007)
+Min Heap Deletion  0.000000   0.000000   0.000000 (  0.000019)
