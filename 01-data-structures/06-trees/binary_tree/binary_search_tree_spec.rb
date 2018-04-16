@@ -105,6 +105,7 @@ RSpec.describe BinarySearchTree, type: Class do
       tree.insert(root, hope)
       tree.delete(root, hope.title)
       expect(tree.find(root, hope.title)).to be_nil
+      expect(tree.find(root, root.title).title).to eq "The Matrix"
     end
 
     it "properly deletes a left-left node" do
@@ -112,6 +113,7 @@ RSpec.describe BinarySearchTree, type: Class do
       tree.insert(root, pacific_rim)
       tree.delete(root, pacific_rim.title)
       expect(tree.find(root, pacific_rim.title)).to be_nil
+      expect(tree.find(root, root.left.title).title).to eq "Braveheart"
     end
 
     it "properly deletes a left-right node" do
@@ -119,12 +121,14 @@ RSpec.describe BinarySearchTree, type: Class do
       tree.insert(root, inception)
       tree.delete(root, inception.title)
       expect(tree.find(root, inception.title)).to be_nil
+      expect(tree.find(root, root.left.title).title).to eq "Donnie Darko"
     end
 
     it "properly deletes a right node" do
       tree.insert(root, district)
       tree.delete(root, district.title)
       expect(tree.find(root, district.title)).to be_nil
+      expect(tree.find(root, root.title).title).to eq "The Matrix"
     end
 
     it "properly deletes a right-left node" do
@@ -132,6 +136,7 @@ RSpec.describe BinarySearchTree, type: Class do
       tree.insert(root, martian)
       tree.delete(root, martian.title)
       expect(tree.find(root, martian.title)).to be_nil
+      expect(tree.find(root, root.right.title).title).to eq "Star Wars: A New Hope"
     end
 
     it "properly deletes a right-right node" do
@@ -139,6 +144,7 @@ RSpec.describe BinarySearchTree, type: Class do
       tree.insert(root, mad_max_2)
       tree.delete(root, mad_max_2.title)
       expect(tree.find(root, mad_max_2.title)).to be_nil
+      expect(tree.find(root, root.right.title).title).to eq "Star Wars: The Empire Strikes Back"
     end
   end
 
