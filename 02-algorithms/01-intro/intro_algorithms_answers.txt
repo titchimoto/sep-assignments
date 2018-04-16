@@ -1,0 +1,51 @@
+01. Calculating a tip
+
+DEF calculateTip(billTotal)
+  
+  
+
+
+END DEF
+
+
+02. Making tea
+
+DEF make_tea(water)
+  SET kettleLevel to water AND kettleOn to TRUE
+  SET teaBag to TRUE
+  SET milk to TRUE
+  SET cupLevel to 0
+
+   WHILE waterTemparature is LESS THAN 100
+    kettleOn = TRUE
+    INCREMENT waterTemparature by 1
+   END WHILE
+  kettleOn = FALSE
+
+  If teaBag AND milk are TRUE AND cupLevel is 0 AND waterTemparature is 100
+    CALL pourWater UNTIL cupLevel is 100
+  END IF
+
+  DRINK!
+
+END DEF
+
+03. Workout today?
+
+DEF workoutToday(dayOfWeek)
+  IF dayOfWeek is MONDAY or WEDNESDAY or FRIDAY THEN
+    CALL beginWorkout
+  ELSIF dayOfWeek is TUESDAY or THURSDAY THEN
+    CALL doYoga
+  ELSE
+    CALL stayInBed
+  END IF
+END DEF
+
+
+
+Determining what to wear;
+Getting to work.
+Morning routine?
+Workout today?
+Making tea
