@@ -22,7 +22,7 @@ RSpec.describe MinBinaryHeap, type: Class do
     it "properly inserts a new left child node first" do
         heap.insert(matrix)
         heap.insert(jedi)
-      expect(heap.items[1].title).to eq "The Matrix"
+        expect(heap.items[1].title).to eq "The Matrix"
     end
 
     it "properly inserts a new node and swaps with root if neccessary" do
@@ -145,43 +145,67 @@ RSpec.describe MinBinaryHeap, type: Class do
     end
 
     it "properly deletes a left node" do
-      heap.insert(hope)
-      heap.delete(hope.title)
-      expect(heap.find(hope.title)).to be_nil
+      heap.insert(matrix)
+      heap.insert(jedi)
+      heap.delete(jedi.title)
+      expect(heap.find(jedi.title)).to be_nil
+      expect(heap.items.size).to eq 1
     end
 
     it "properly deletes a left-left node" do
+      heap.insert(matrix)
+      heap.insert(jedi)
+      heap.insert(donnie)
+      heap.insert(district)
       heap.insert(braveheart)
-      heap.insert(pacific_rim)
-      heap.delete(pacific_rim.title)
-      expect(heap.find(pacific_rim.title)).to be_nil
+      heap.delete(braveheart.title)
+      expect(heap.find(braveheart.title)).to be_nil
+      expect(heap.items.size).to eq 4
     end
 
     it "properly deletes a left-right node" do
+      heap.insert(matrix)
+      heap.insert(jedi)
       heap.insert(donnie)
-      heap.insert(inception)
-      heap.delete(inception.title)
-      expect(heap.find(inception.title)).to be_nil
-    end
-
-    it "properly deletes a right node" do
       heap.insert(district)
-      heap.delete(district.title)
-      expect(heap.find(district.title)).to be_nil
-    end
-
-    it "properly deletes a right-left node" do
-      heap.insert(hope)
       heap.insert(martian)
       heap.delete(martian.title)
       expect(heap.find(martian.title)).to be_nil
+      expect(heap.items.size).to eq 4
+    end
+
+    it "properly deletes a right node" do
+      heap.insert(matrix)
+      heap.insert(jedi)
+      heap.insert(donnie)
+      heap.delete(donnie.title)
+      expect(heap.find(donnie.title)).to be_nil
+      expect(heap.items.size).to eq 2
+    end
+
+    it "properly deletes a right-left node" do
+      heap.insert(matrix)
+      heap.insert(jedi)
+      heap.insert(donnie)
+      heap.insert(district)
+      heap.insert(martian)
+      heap.insert(hope)
+      heap.delete(hope.title)
+      expect(heap.find(hope.title)).to be_nil
+      expect(heap.items.size).to eq 5
     end
 
     it "properly deletes a right-right node" do
-      heap.insert(empire)
+      heap.insert(matrix)
+      heap.insert(jedi)
+      heap.insert(donnie)
+      heap.insert(district)
+      heap.insert(martian)
+      heap.insert(hope)
       heap.insert(mad_max_2)
       heap.delete(mad_max_2.title)
       expect(heap.find(mad_max_2.title)).to be_nil
+      expect(heap.items.size).to eq 6
     end
   end
 
