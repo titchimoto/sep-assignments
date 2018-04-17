@@ -1,0 +1,56 @@
+1. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+
+Using linear search would take 7 iterations to find the value 'G' in the alphabetically sorted collection. Linear search will just look at
+each element in consecutive order, so wherever the element is in the collection will be how many iterations it takes to find the
+respective value. 
+
+2. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+
+Using binary search, I believe it would take 3 iterations to find the value 'G'. Due to the divide and conquer nature of this search algorithm
+it narrows down the potential location on each iteration, meaning by the third iteration the low, mid and high will all point to value 'G'.
+
+
+3. Calculate fib(10), fib(11), fib(12) by hand.
+
+Following on from fib(9) => 13	21	34
+
+fib(10) => 21  34  (55)
+fib(11) => 34  55  (89)
+fib(12) => 55  89  (144)
+
+Save the recursive implementation of the Fibonacci sequence above as fibonnaci_recursive.rb. 
+Compare the time it takes to run fib(20) between the iterative solution from the previous checkpoint and recursive solutions.
+
+Here are the benchmarking results for running fib(20) for both solutions: 
+Iterative:
+  0.000000   0.000000   0.000000 (  0.000019)
+Recursive:
+  0.000000   0.000000   0.000000 (  0.001235)
+
+It appeared as the number being passed in to the fib(n) function became larger, the recursive solution became slower at a much larger
+rate than the iterative solution.
+
+
+Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? 
+Would you use an iterative or recursive solution? Explain your reasoning.
+
+Assuming the collection is unsorted, I would choose a linear search. Binary search would not work correctly on an unsorted collection
+because it has no way to correctly implement it's divide-and-conquer strategy. That is, in an unsorted collection, when calculating
+it's new low/mid/high index points, it does not correctly know whether the current value is 'higher' or lower' than target value. 
+In this instance, I would use an iterative solution. For something as simple as a linear search, I don't believe the trade-off
+between potential efficiency losses would be worthwhile to implement in a linear search. (assuming that the notion of using a loop
+is not strictly speaking classed as 'recursion' in it's own right?)
+
+
+Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? 
+Would you use an iterative or recursive solution? Explain your reasoning.
+
+Assuming the collection is sorted, I would choose to use a binary search. Due to the sorted nature of the collection, a binary
+search would appear to be the better option, because taking the average efficiency, it's divide-and-conquer tactics would provide
+better results. Assuming that the binary search is going to take base-2 log of n iterations to find the target value, in a one million
+element collection, that will mean, in the worst case, it will take 20 iterations to find the value. This would suggest that in order
+for a linear search to be as or more efficient, the target element would have to be in the first 20 elements. Taking my fib(n) results
+from above, I would choose to implement this iteratively due to the large size of the collection and the potential efficiency losses
+as the collection grows.
+
+
