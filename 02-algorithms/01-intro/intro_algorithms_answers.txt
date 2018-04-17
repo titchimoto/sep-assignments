@@ -1,10 +1,7 @@
 01. Calculating a tip
 
-DEF calculateTip(billTotal)
-  
-  
-
-
+DEF calculateTip(billTotal, tipPercentage)
+  COMPUTE billTotal * (tipPercentage / 100 + 1)
 END DEF
 
 
@@ -41,11 +38,3 @@ DEF workoutToday(dayOfWeek)
     CALL stayInBed
   END IF
 END DEF
-
-
-
-Determining what to wear;
-Getting to work.
-Morning routine?
-Workout today?
-Making tea
