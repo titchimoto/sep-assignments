@@ -4,7 +4,7 @@ def binary_search(collection, target)
 
     return "Item not found." if low > high
 
-    mid = (low + high) / 2
+    mid = (low + high) >> 1
 
     if collection[mid] == target
         "Item Found!"

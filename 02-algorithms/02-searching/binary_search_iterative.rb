@@ -3,7 +3,7 @@ def binary_search(collection, target)
     high = collection.size - 1
     
     while low <= high
-      mid = (low + high) / 2
+      mid = (low + high) >> 1
       if collection[mid] > target
         high = mid - 1
       elsif collection[mid] < target
