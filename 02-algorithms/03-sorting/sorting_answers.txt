@@ -1,0 +1,13 @@
+Looking at the bar chart, speculate on why you think some sort algorithms are faster than others and provide rationale as to your thought process.
+
+(see sorting_results.png for bar chart results)
+
+Based on the results from my bar chart, I was slightly surprised to see that some of the algorithms I expected to perform better were
+actually out-performed by other algorithms that I did not expect to fare so well.
+
+For example, I'm aware that both Quick Sort and Merge Sort both perform efficiently when compared to other sorting algorithms, however,
+this was not really borne out in my results. My initial instinct was to assume that this may be down to inefficiencies in my code as a
+relative beginner in developing these algorithms. Upon exploring my code a little further, I noticed that the majority of the sorting
+algorithms that did not perform as well as I expected contained numerous recursive calls during the sorting process. As the collection
+size grows larger, I believe the way I have implemented these repeated recursive calls greatly affects efficiency in a way that an algorithm 
+like insertion sort does not. 
