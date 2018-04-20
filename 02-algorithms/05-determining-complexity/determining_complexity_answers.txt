@@ -1,0 +1,163 @@
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+def goodbye_world(n)
+ puts "Goodbye World! #{n}"
+end
+
+ANSWER: I believe this would be O(1) or Big-O of constant time. With a simple 'puts' or 'print'
+style statement, the number of operations will not increase as the size of the input does, which
+means that the rate of change will always remain constant. 
+
+
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+find_largest.rb
+def find_largest(collection)
+ largest = collection[0]
+ collection.length.times do |i|
+   if collection[i] >= largest
+     largest = collection[i]
+   end
+ end
+ largest
+end
+
+
+ANSWER: I believe this would be O(n) or Big-O of linear time. With the above algorithm, it takes a
+data collection as input, and simply iterates over each item in the collection, comparing it the
+variable it originally assigned. This means that as the data collection size grows, so does the number
+of operations at the same rate, in the worst-case, to potentially find the largest element. 
+
+
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+find_largest_2D_array.rb
+def find_largest(collection)
+ largest = collection[0][0]
+ collection.length.times do |i|
+   subcollection = collection[i]
+   subcollection.length.times do |j|
+     if subcollection[j] >= largest
+       largest = subcollection[j]
+     end
+   end
+ end
+ largest
+end
+
+ANSWER: I believe this would be O(n) or Big-O of linear time. Originally, the algorithm is making
+a simple pass through the data collection, essentially a linear search, but it is then also looping
+through each sub array within that collection and doing another linear search within those sub-collections
+to find the largest element. This means that each pass through is doing a secondary loop, so for a
+collection of size n, 2n operations are occuring, which after dropping the constants results in O(n).
+
+
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+numbers_recurive.rb
+def numbers(n)
+ if (n == 0)
+   return 0
+ elsif (n == 1)
+   return 1
+ else
+   return numbers(n-1) + numbers(n-2)
+ end
+end
+
+ANSWER: I believe that this algorithm has a Big-O of exponential time, or O(2^n). Assessing the
+algorithm for input, we know that f(n) = f(n-1) + f(n-2), which means that as the size of n
+grows, it has to make these recursive calls twice to the fib(n) function for every layer of recursion
+in the tree, plus the original value of n times. For example, the difference between fib(5) and fib(6)
+would cause the operations to grow larger than the difference in input size, and even more than say
+double or even quadratic time, and I believe would grow exponentially.
+
+
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+numbers_iterative.rb
+def iterative(n)
+ num1 = 0
+ num2 = 1
+
+ i = 0
+ while i < n-1
+   tmp = num1 + num2
+   num1 = num2
+   num2 = tmp
+   i+=1
+ end
+
+ num2
+end
+
+ANSWER: I believe this algorithm to be O(n) or Big-O of linear time. Breaking this algorithm
+down into different components, we have a few different assignments, such as num1 = 0, a while
+loop, and inside the while loop, a few more assignments, such as num1 = num2 etc. Taking 
+this information and inserting it into a generic function, we could argue that: 
+f(n) = 2C + (n-1) + 4C, which after dropping all the constants leaves us with f(n) = n. 
+This means that as the size of n grows, the number of comparisons increases linearly, as for
+n elements, there must be n operations to solve.
+
+
+
+
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+sort.rb
+def sort(collection, from=0, to=nil)
+ if to == nil
+   # Sort the whole collection, by default
+   to = collection.count - 1
+ end
+
+ if from >= to
+   # Done sorting
+   return
+ end
+
+ # Take a pivot value, at the far left
+ pivot = collection[from]
+
+ # Min and Max pointers
+ min = from
+ max = to
+
+ # Current free slot
+ free = min
+
+ while min < max
+   if free == min # Evaluate collection[max]
+     if collection[max] <= pivot # Smaller than pivot, must move
+       collection[free] = collection[max]
+       min += 1
+       free = max
+     else
+       max -= 1
+     end
+   elsif free == max # Evaluate collection[min]
+     if collection[min] >= pivot # Bigger than pivot, must move
+       collection[free] = collection[min]
+       max -= 1
+       free = min
+     else
+       min += 1
+     end
+   else
+     raise "Inconsistent state"
+   end
+ end
+
+ collection[free] = pivot
+
+ sort collection, from, free - 1
+ sort collection, free + 1, to
+
+ collection
+end
+
+ANSWER: After analyzing the code, if it hits the base case i.e is already sorted, it will simply
+return in constant time. Otherwise, the algorithm has a while loop which will run in O(n) time
+and then it also makes two recursive calls to itself. Assuming worst case scenario for the 
+existing order, I believe this means it will have to make n * n recursive calls in order to fully
+sort, therefore, I believe this is O(n^2).
