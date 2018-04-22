@@ -1,0 +1,22 @@
+1. Code Optimizations
+
+I made a few optimizations to this code, including a few comparison operator changes to improve efficiency, but
+the main optimization I made was removing one of the each loops from the beginning, and instead using
+just one each loop and array concatenation to piece the arrays together. However, due to the 
+sorting algorithm used, which I believe to be insertion sort, this has a worst-case scenario of O(n^2).
+
+2. Time Complexity Improvements
+
+For this example, I attempted to improve the time complexity by changing the sorting algorithm used to
+sort the flattened array. I left the previous code optimizations in position, but removed the insertion
+sort algorithm and substituted it with a merge sort in an effort to improve the complexity in the worst-case
+scenario. This would change Big-O from O(n^2) for the insertion sort, to O(nlogn) for merge sort.
+
+3. Space Complexity Improvements
+
+Finally, in this example, I attempted to improve the space complexity of the algorithm. The previous
+implementation was using a secondary array to contain the sorted data as it removed it from the 
+originally flattened array. My intent to improve the space complexity was to remove the necessity for
+this secondary array by simply sorting the data collection in place. I used a previous implementation of 
+the bubble sort algorithm to achieve this. Whilst bubble sort does have a Big-O of O(n^2) in worst-case
+scenarios, it does have very efficient space complexity due to it's sort-in-place nature.
