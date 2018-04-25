@@ -19,10 +19,10 @@ RSpec.describe TravelingSalesman, type: Class do
             Neighbor.new(miami, 3255)
         ]
         new_york.neighbors = [
+            Neighbor.new(boston, 215),
             Neighbor.new(miami, 1277),
             Neighbor.new(portland, 2902),
-            Neighbor.new(austin, 1742),
-            Neighbor.new(boston, 215)
+            Neighbor.new(austin, 1742)
         ]
         miami.neighbors = [
             Neighbor.new(boston, 1489),

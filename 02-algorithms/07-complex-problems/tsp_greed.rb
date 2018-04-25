@@ -16,9 +16,11 @@ class TravelingSalesman
       next_city = neighbor_cities[0]
       
       for current_neighbor in neighbor_cities
-        next_city = current_neighbor if current_neighbor.city.visited == false && current_neighbor.distance < next_city.distance
+        if current_neighbor.city.visited == false && (current_neighbor.distance < next_city.distance || next_city.city.visited == true)
+          next_city = current_neighbor 
+        end
       end
-      
+
       current_city.visited = true
       @trip << current_city.name
       current_city = next_city.city
